@@ -1,14 +1,24 @@
-'use strict';
+(function() {
+  // Create a variable called app and assign the module to it
+  var app = angular.module('app', []);
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+  // use the variable to call the config function
+  app.config(function($provide){
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+    $provide.provider('books', function () {
+       this.$get = function () {
+          
+        //string variables value's in the service
+          var appName = 'Data Science Online BookStore';
+          var appDesc = 'Track which books you have read.';
+
+         // return an object literal representing the service
+          return {
+            appName: appName,
+            appDesc: appDesc
+          };
+         
+       };      
+    });
+  });
+})();

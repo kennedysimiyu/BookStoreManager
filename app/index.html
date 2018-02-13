@@ -17,7 +17,9 @@
 <body>
 
   <div ng-controller="BooksController as books">
+
     <h1>Hello {{books.appName}}!</h1>
+
     <h3>All Books</h3>
 
     <div>
@@ -25,6 +27,15 @@
         <li ng-repeat="book in books.allBooks">{{book.title}} - {{book.author}}</li>
       </ul>
     </div>
+
+    <h3>All Readers</h3>
+
+    <div>
+      <ul>
+        <li ng-repeat="reader in books.allReaders">{{reader.name}} - {{books.getBadge(reader.totalMinutesRead)}}</li>
+      </ul>
+    </div>
+
   </div>
 
   <!-- In production use:
@@ -37,5 +48,6 @@
   <script src="services/dataService.js"></script>
   <script src="services/loggerService.js"></script>
   <script src="services/constantService.js"></script>
+  <script src="services/badgeService.js"></script>  
 </body>
 </html>

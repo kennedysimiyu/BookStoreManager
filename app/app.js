@@ -2,7 +2,7 @@
   // Create a variable called app and assign the module to it
   var app = angular.module('app', []);
 
-  app.provider('books', function (constants) {
+  app.provider('books', ['constants', function (constants) {
 
      // code for appending version in front of title
      var includeVersionInTitle = false;
@@ -27,17 +27,14 @@
        return {
          appName: appName,
          appDesc: appDesc
-       };
-      
-    };
-        
- });
-  
-  
+       };    
+    };       
+ }]);
+
   // use the variable to call the config function
-  app.config(function(booksProvider){
+  app.config(['booksProvider', 'constants', 'dataServiceProvider', function(booksProvider, constants, dataServiceProvider){
 
     booksProvider.setIncludeVersionInTitle(true);
 
-  });
+  }]);
 })();

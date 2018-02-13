@@ -16,19 +16,28 @@
 
     // returning all books call using promises
     dataService.getAllBooks()
-      .then(getBooksSuccess, getBooksError, getBooksNotification);
+      .then(getBooksSuccess, null, getBooksNotification)
+      .catch(errorCallback)
+      .finally(getAllBooksComplete);
 
       function getBooksSuccess(books) {
-        throw 'error in success handler';
         vm.allBooks = books;
       }
 
-      function getBooksError(reason) {
-        console.log(reason);
+      // function getBooksError(reason) {
+      //   console.log(reason);
+      // }
+
+      function errorCallback(errorMsg) {
+        console.log('Error Message: ' + errorMsg);
       }
 
       function getBooksNotification(notification) {
         console.log('Promise Notification: ' + notification);
+      }
+
+      function getAllBooksComplete() {
+        console.log('getAllBooks has completed');
       }
 
 

@@ -1,11 +1,12 @@
 // IIFE to keep our code out of global scope
 (function() {
-  "use strict";
+  'use strict';
 
-  angular.module("app").factory("dataService", dataService);
+  angular.module('app')
+       .factory('dataService', ['$q', '$timeout', dataService]);
 
   // named data service function
-  function dataService(logger) {
+  function dataService($q, $timeout) {
 
     // returned object literal, which represents the API of the service
     return {
@@ -17,9 +18,9 @@
     // function retrieving books
     function getAllBooks() {
 
-        logger.output('getting all books');
+        //logger.output('getting all books');
 
-        return [
+        var booksArray = [
             {
                 book_id: 1,
                 title: 'Doing Data Science: Straight Talk from the Frontline',
@@ -51,12 +52,27 @@
                 year_published: 2015 
             }
         ];
+
+        var deferred = $q.defer();
+
+        $timeout(function(){
+
+            var successful = true;
+            if (successful) {
+                deferred.resolve(booksArray);
+            } else {
+                deferred.reject('Error retrieving books');
+            }
+
+        }, 1000);
+
+        return deferred.promise;
     }
 
     // function retrieving readers
     function getAllReaders() {
 
-        logger.output('getting all readers');
+       // logger.output('getting all readers');
         return [
             {
                 reader_id: 1,

@@ -12,7 +12,21 @@
     // define the properties
     vm.appName = books.appName;
 
-    vm.allBooks = dataService.getAllBooks();
+    //vm.allBooks = dataService.getAllBooks();
+
+    // returning all books call using promises
+    dataService.getAllBooks()
+      .then(getBooksSuccess, getBooksError);
+
+      function getBooksSuccess(books) {
+        vm.allBooks = books;
+      }
+
+      function getBooksError(reason) {
+        console.log(reason);
+      }
+
+
     vm.allReaders = dataService.getAllReaders();
 
     vm.getBadge = badgeService.retrieveBadge;

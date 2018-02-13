@@ -3,14 +3,34 @@
 
   // use dependency annotation incase of minification of code
   angular.module('app')
-      .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', BooksController]);
+      .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q',  BooksController]);
 
   // injecting the service in our controller, using angular As no injecting $scope capture the this value and assign it to vm
-  function BooksController(books, dataService, logger, badgeService) {
+  function BooksController(books, dataService, logger, badgeService, $q) {
     var vm = this;
 
     // define the properties
     vm.appName = books.appName;
+
+    // implementation for waiting on all data array before returing the promise
+
+   /* 
+      var booksPromise = dataService.getAllBooks();
+      var readersPromise = dataService.getAllReaders();
+
+      $q.all([booksPromise, readersPromise])
+        .then(getAllDataSuccess)
+        .then(getAllDataError);
+
+      function getAllDataSuccess(dataArray) {
+        vm.allBooks = dataArray[0];
+        vm.allReaders = dataArray[1];
+      }
+
+      function getAllDataError(reason) {
+        console.log(reason);
+      } 
+    */
 
     //vm.allBooks = dataService.getAllBooks();
 

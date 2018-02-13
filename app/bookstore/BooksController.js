@@ -19,6 +19,7 @@
       .then(getBooksSuccess, getBooksError, getBooksNotification);
 
       function getBooksSuccess(books) {
+        throw 'error in success handler';
         vm.allBooks = books;
       }
 

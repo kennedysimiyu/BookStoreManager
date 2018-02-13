@@ -78,7 +78,7 @@
     function getAllReaders() {
 
        // logger.output('getting all readers');
-        return [
+       var readersArray = [
             {
                 reader_id: 1,
                 name: 'Kennedy',
@@ -109,7 +109,27 @@
                 weeklyReadingGoal: 315,
                 totalMinutesRead: 5600
             }
-        ]
+        ];
+
+        var deferred = $q.defer();
+
+        $timeout(function(){
+
+            var successful = true;
+            if (successful) {
+
+                deferred.notify('Just getting started gathering readers.....');
+                deferred.notify('Almost done gathering readers......');
+
+                deferred.resolve(readersArray);
+
+            } else {
+                deferred.reject('Error retrieving readers');
+            }
+
+        }, 1500);
+
+        return deferred.promise;
     }
   }
   // inject the logger service

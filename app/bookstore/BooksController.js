@@ -41,7 +41,28 @@
       }
 
 
-    vm.allReaders = dataService.getAllReaders();
+    //vm.allReaders = dataService.getAllReaders();
+    dataService.getAllReaders()
+    .then(getReadersSuccess, null, getReadersNotification)
+    .catch(errorCallback)
+    .finally(getAllReadersComplete);
+
+    function getReadersSuccess(readers) {
+      vm.allReaders = readers;
+    }
+
+    function errorCallback(errorMsg) {
+      console.log('Error Message: ' + errorMsg);
+    }
+
+    function getReadersNotification(notification) {
+      console.log('Promise Notification: ' + notification);
+    }
+
+    function getAllReadersComplete() {
+      console.log('getAllReaders has completed');
+    }
+
 
     vm.getBadge = badgeService.retrieveBadge;
 

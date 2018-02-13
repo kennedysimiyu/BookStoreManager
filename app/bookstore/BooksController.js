@@ -16,7 +16,7 @@
 
     // returning all books call using promises
     dataService.getAllBooks()
-      .then(getBooksSuccess, getBooksError);
+      .then(getBooksSuccess, getBooksError, getBooksNotification);
 
       function getBooksSuccess(books) {
         vm.allBooks = books;
@@ -24,6 +24,10 @@
 
       function getBooksError(reason) {
         console.log(reason);
+      }
+
+      function getBooksNotification(notification) {
+        console.log('Promise Notification: ' + notification);
       }
 
 

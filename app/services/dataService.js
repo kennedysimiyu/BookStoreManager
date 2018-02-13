@@ -59,7 +59,12 @@
 
             var successful = true;
             if (successful) {
+
+                deferred.notify('Just getting started gathering books.....');
+                deferred.notify('Almost done gathering books......');
+
                 deferred.resolve(booksArray);
+
             } else {
                 deferred.reject('Error retrieving books');
             }

@@ -5,7 +5,7 @@
   angular.module("app").factory("dataService", dataService);
 
   // named data service function
-  function dataService() {
+  function dataService(logger) {
 
     // returned object literal, which represents the API of the service
     return {
@@ -16,6 +16,9 @@
 
     // function retrieving books
     function getAllBooks() {
+
+        logger.output('getting all books');
+
         return [
             {
                 book_id: 1,
@@ -52,6 +55,8 @@
 
     // function retrieving readers
     function getAllReaders() {
+
+        logger.output('getting all readers');
         return [
             {
                 reader_id: 1,
@@ -86,4 +91,6 @@
         ]
     }
   }
+  // inject the logger service
+  dataService.$inject = ['logger'];
 })();

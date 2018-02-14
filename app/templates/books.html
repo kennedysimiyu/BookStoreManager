@@ -7,6 +7,7 @@
     </div>
 
     <a href="#/AddBook">Add New Book</a>
+    <a href="#/EditBook/{{ books.lastEdited.book_id }}">Open Last Edited</a>
 
     <h3>All Readers</h3>
 
@@ -14,4 +15,9 @@
       <ul>
         <li ng-repeat="reader in books.allReaders">{{reader.name}} - {{books.getBadge(reader.totalMinutesRead)}}</li>
       </ul>
+    </div>
+
+    <h3>Current Favorite Book</h3>
+    <div>
+      {{ books.favoriteBook }}
     </div>

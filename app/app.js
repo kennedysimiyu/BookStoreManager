@@ -1,6 +1,6 @@
 (function() {
   // Create a variable called app and assign the module to it
-  var app = angular.module('app', ['ngRoute']);
+  var app = angular.module('app', ['ngRoute', 'ngCookies']);
 
   app.provider('books', ['constants', function (constants) {
 

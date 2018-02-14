@@ -3,10 +3,10 @@
 
   // use dependency annotation incase of minification of code
   angular.module('app')
-      .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q',  BooksController]);
+      .controller('BooksController', ['$q', 'books', 'dataService', 'logger', 'badgeService', '$cookies', '$cookieStore',  BooksController]);
 
   // injecting the service in our controller, using angular As no injecting $scope capture the this value and assign it to vm
-  function BooksController(books, dataService, logger, badgeService, $q) {
+  function BooksController($q, books, dataService, logger, badgeService, $cookies, $cookieStore) {
     var vm = this;
 
     // define the properties
@@ -87,5 +87,9 @@
     vm.getBadge = badgeService.retrieveBadge;
 
     logger.output('BooksController has been created.');
+
+    vm.favoriteBook = $cookies.favoriteBook;
+
+    vm.lastEdited = $cookieStore.get('lastEdited');
   }
 })();

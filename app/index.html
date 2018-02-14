@@ -7,13 +7,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Online BookStore</title>
+
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- application third party styling libraries -->
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="css\bootstrap.min.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="bower_components\bulma\css\bulma.css"></script>
+
 </head>
 <body ng-app="app">
 
@@ -24,15 +28,23 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <!-- third party libraries -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="js\angularcookies\angular-cookies.min.js"></script>
+
   <script src="app.js"></script>
+
+  <!-- application controllers js files -->
   <script src="bookstore/BooksController.js"></script>
   <script src="bookstore/AddBookController.js"></script>
   <script src="bookstore/EditBookController.js"></script>
+
+   <!-- application services js files -->
   <script src="services/dataService.js"></script>
   <script src="services/loggerService.js"></script>
   <script src="services/constantService.js"></script>
-  <script src="services/badgeService.js"></script>  
+  <script src="services/badgeService.js"></script> 
+
 </body>
 </html>

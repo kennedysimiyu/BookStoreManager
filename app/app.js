@@ -1,6 +1,6 @@
 (function() {
   // Create a variable called app and assign the module to it
-  var app = angular.module('app', []);
+  var app = angular.module('app', ['ngRoute']);
 
   app.provider('books', ['constants', function (constants) {
 
@@ -32,9 +32,21 @@
  }]);
 
   // use the variable to call the config function
-  app.config(['booksProvider', 'constants', 'dataServiceProvider', function(booksProvider, constants, dataServiceProvider){
+  app.config(['booksProvider', '$routeProvider', 'constants', 'dataServiceProvider', function(booksProvider, $routeProvider, constants, dataServiceProvider){
 
     booksProvider.setIncludeVersionInTitle(true);
+
+    $routeProvider
+    .when('/', {
+      templateUrl: '/templates/books.html',
+      controller: 'BooksController',
+      controllerAs: 'books'
+    })
+    .when('/AddBook', {
+      templateUrl: '/templates/addBook.html',
+      controller: 'AddBookController',
+      controllerAs: 'addbook'
+    });
 
   }]);
 })();

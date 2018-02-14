@@ -50,7 +50,14 @@
     .when('/EditBook/:bookID', {
       templateUrl: '/templates/editBook.html',
       controller: 'EditBookController',
-      controllerAs: 'bookEditor'
+      controllerAs: 'bookEditor',
+      // adding a resolve property means that angular will wait until the resolve is finished bfore transitioning to the
+      // new route.
+      resolve: {
+        books: function (dataService) {
+          return dataService.getAllBooks();
+        }
+      }
     })
     .otherwise('/');
 

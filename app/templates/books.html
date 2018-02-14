@@ -1,6 +1,6 @@
 <h3>All Books</h3>
 
-    <div>
+<div class="field">
       <ul>
         <li ng-repeat="book in books.allBooks">{{book.title}} - {{book.author}}</li>
       </ul>
@@ -10,7 +10,7 @@
 
     <h3>All Readers</h3>
 
-    <div>
+    <div class="field">
       <ul>
         <li ng-repeat="reader in books.allReaders">{{reader.name}} - {{books.getBadge(reader.totalMinutesRead)}}</li>
       </ul>

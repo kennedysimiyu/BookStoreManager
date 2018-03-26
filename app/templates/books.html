@@ -1,23 +1,33 @@
 <h3>All Books</h3>
 
-<div class="field">
-      <ul>
-        <li ng-repeat="book in books.allBooks">{{book.title}} - {{book.author}} <a href="#/EditBook/{{book.book_id}}">Edit</a></li>
-      </ul>
-    </div>
+<div class="item">
+  <div class="animate-box">
+    <!--<a href="images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
+        <img src="images/img_1.jpg" alt="Free HTML5 Bootstrap template"></a> -->
+  </div>
+  <div class="field">
+    <ul>
+      <li ng-repeat="book in books.allBooks"> {{book.title}} <br> {{book.author}}
+        <a href="#/EditBook/{{book.book_id}}">Edit</a>
+        <img class="center-block img-responsive"
+         style="width:150px;margin:100px;"
+         ng-src="{{book.imageUrl}}"
+         title="{{book.title}}">
+      </li>
+    </ul>
+  </div>
+</div>
 
-    <a href="#/AddBook">Add New Book</a>
-    <a href="#/EditBook/{{ books.lastEdited.book_id }}">Open Last Edited</a>
 
-    <h3>All Readers</h3>
+<a href="#/AddBook">
+  <button class="btn btn-default">Add New Book</button>
+</a>
 
-    <div class="field">
-      <ul>
-        <li ng-repeat="reader in books.allReaders">{{reader.name}} - {{books.getBadge(reader.totalMinutesRead)}}</li>
-      </ul>
-    </div>
+<a href="#/EditBook/{{ books.lastEdited.book_id }}">
+  <button class="btn btn-default">Open Last Edited</button>
+</a>
 
-    <h3>Current Favorite Book</h3>
-    <div>
-      {{ books.favoriteBook }}
-    </div>
+<h3>Current Favorite Book</h3>
+<div>
+  {{ books.favoriteBook }}
+</div>

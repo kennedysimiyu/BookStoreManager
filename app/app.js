@@ -42,6 +42,11 @@
       controller: 'BooksController',
       controllerAs: 'books'
     })
+    .when('/Readers', {
+      templateUrl: '/templates/readers.html',
+      controller: 'ReadersController',
+      controllerAs: 'readers'
+    })
     .when('/AddBook', {
       templateUrl: '/templates/addBook.html',
       controller: 'AddBookController',

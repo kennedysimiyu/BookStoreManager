@@ -61,7 +61,7 @@
       }
 
 
-    //vm.allReaders = dataService.getAllReaders();
+   /* //vm.allReaders = dataService.getAllReaders();
     dataService.getAllReaders()
     .then(getReadersSuccess, null, getReadersNotification)
     .catch(errorCallback)
@@ -81,10 +81,10 @@
 
     function getAllReadersComplete() {
       console.log('getAllReaders has completed');
-    }
+    } */
 
 
-    vm.getBadge = badgeService.retrieveBadge;
+    //vm.getBadge = badgeService.retrieveBadge;
 
     logger.output('BooksController has been created.');
 

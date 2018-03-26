@@ -1,0 +1,7 @@
+<h3>All Readers</h3>
+
+<div class="field">
+    <ul>
+        <li ng-repeat="reader in readers.allReaders">{{reader.name}} - {{books.getBadge(reader.totalMinutesRead)}}</li>
+    </ul>
+</div>
